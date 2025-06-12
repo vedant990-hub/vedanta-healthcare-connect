@@ -9,10 +9,10 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
-    "https://drive.google.com/uc?export=view&id=1ihqQEwWt9lvcPG7yJ1pPheYTYpFdVbzs",
-    "https://drive.google.com/uc?export=view&id=1m7-Ll9eC_YPy970JhGrrWnSpoy8rQZFB",
-    "https://drive.google.com/uc?export=view&id=1ke5fKjCJU9ACPRJbC76RGzonVVQncgiD",
-    "https://drive.google.com/uc?export=view&id=1x5l4pRIslEDg5dGnahVNaJeqOhOpiP5A"
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0016.jpg",
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0017.jpg",
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0018.jpg",
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0019.jpg"
   ];
 
   useEffect(() => {
@@ -90,8 +90,7 @@ const Index = () => {
               <span className="text-medical-light">Enabling Care.</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto fade-in-delay">
-              Mumbai's trusted distributor of high-quality diagnostic and surgical products 
-              from world-renowned brands to leading hospitals.
+              Mumbai's trusted distributor of global medical brands.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-delay">
               <Button size="lg" variant="secondary" asChild>
