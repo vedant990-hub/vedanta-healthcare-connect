@@ -1,50 +1,50 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Briefcase, User } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Heart, Stethoscope, Activity, Package } from "lucide-react";
 
 const Products = () => {
   const brands = [
     {
       name: "Cordis",
-      specialty: "Cardiovascular & Endovascular Devices",
-      description: "Leading provider of interventional cardiology and endovascular products, helping physicians treat patients with cardiovascular disease.",
+      category: "Cardiovascular and Endovascular Devices",
+      description: "Leading manufacturer of interventional cardiovascular devices including stents, catheters, and guidewires for cardiac and vascular procedures.",
+      icon: Heart,
+      color: "bg-red-500",
       products: [
         "Drug-Eluting Stents",
         "Balloon Catheters",
-        "Guide Wires",
+        "Guidewires",
         "Vascular Closure Devices",
-        "Peripheral Stents"
-      ],
-      icon: Heart,
-      color: "bg-red-500"
+        "Embolic Protection Devices"
+      ]
     },
     {
       name: "Coloplast",
-      specialty: "Ostomy, Urology & Wound Care",
-      description: "Global leader in ostomy care, continence care, and wound & skin care products that make life easier for people with intimate healthcare needs.",
+      category: "Ostomy, Urology, and Wound Care",
+      description: "Global healthcare company providing innovative products for ostomy care, urology, continence care, and wound management.",
+      icon: Package,
+      color: "bg-blue-500",
       products: [
-        "Ostomy Bags & Accessories",
+        "Ostomy Bags and Accessories",
         "Urological Catheters",
         "Wound Dressings",
-        "Skin Barriers",
-        "Continence Care Products"
-      ],
-      icon: User,
-      color: "bg-blue-500"
+        "Continence Care Products",
+        "Skin Barriers"
+      ]
     },
     {
       name: "Johnson & Johnson",
-      specialty: "Diagnostics & Surgical Tools",
-      description: "Comprehensive range of medical devices, diagnostics, and surgical instruments trusted by healthcare professionals worldwide.",
+      category: "Surgical Instruments and Diagnostic Devices",
+      description: "Comprehensive range of surgical instruments, diagnostic equipment, and medical devices for various healthcare specialties.",
+      icon: Stethoscope,
+      color: "bg-green-500",
       products: [
         "Surgical Instruments",
         "Diagnostic Equipment",
-        "Wound Closure Products",
-        "Orthopedic Devices",
-        "Vision Care Products"
-      ],
-      icon: Briefcase,
-      color: "bg-green-500"
+        "Sutures and Wound Closure",
+        "Orthopedic Implants",
+        "Endoscopic Devices"
+      ]
     }
   ];
 
@@ -54,72 +54,65 @@ const Products = () => {
       <section className="bg-gradient-to-r from-medical-blue to-blue-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Product Portfolio</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Products</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Premium medical equipment and devices from world-renowned brands, 
-              carefully selected to meet the highest standards of healthcare excellence.
+              Comprehensive range of high-quality diagnostic and surgical equipment 
+              from world-renowned manufacturers, trusted by Mumbai's leading hospitals.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Products Overview */}
-      <section className="py-16 bg-medical-light">
+      {/* Product Brands */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted Global Brands
+              Our Partner Brands
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We are proud authorized distributors for leading medical device manufacturers, 
-              ensuring authentic products and reliable supply chains for Mumbai's healthcare institutions.
+            <p className="text-lg text-gray-600">
+              We partner with globally trusted manufacturers to bring you the best medical equipment
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Brand Cards */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
-            {brands.map((brand, index) => (
-              <Card key={brand.name} className={`slide-up hover:shadow-xl transition-all duration-300 overflow-hidden ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`} style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="lg:flex">
-                  <div className="lg:w-1/3">
-                    <div className={`${brand.color} h-64 lg:h-full flex items-center justify-center`}>
-                      <div className="text-center text-white">
-                        <brand.icon className="h-16 w-16 mx-auto mb-4" />
-                        <h3 className="text-3xl font-bold">{brand.name}</h3>
-                        <p className="text-lg opacity-90 mt-2">{brand.specialty}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="lg:w-2/3">
-                    <CardContent className="p-8 lg:p-12">
-                      <CardHeader className="p-0 mb-6">
-                        <CardTitle className="text-2xl font-bold text-gray-900">
-                          {brand.specialty}
-                        </CardTitle>
-                      </CardHeader>
-                      <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                        {brand.description}
-                      </p>
-                      <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-4">Key Products:</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {brand.products.map((product) => (
-                            <div key={product} className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-medical-blue rounded-full"></div>
-                              <span className="text-gray-700">{product}</span>
-                            </div>
-                          ))}
+            {brands.map((brand, index) => {
+              const IconComponent = brand.icon;
+              return (
+                <Card key={brand.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <CardContent className="p-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                      {/* Brand Info */}
+                      <div className="lg:col-span-2">
+                        <div className="flex items-start space-x-4 mb-6">
+                          <div className={`${brand.color} text-white p-4 rounded-lg`}>
+                            <IconComponent className="h-8 w-8" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{brand.name}</h3>
+                            <p className="text-lg text-medical-blue font-medium mb-3">{brand.category}</p>
+                            <p className="text-gray-600">{brand.description}</p>
+                          </div>
                         </div>
                       </div>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
-            ))}
+
+                      {/* Products List */}
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-4">Key Products</h4>
+                        <ul className="space-y-2">
+                          {brand.products.map((product, productIndex) => (
+                            <li key={productIndex} className="flex items-center text-gray-600">
+                              <Activity className="h-4 w-4 text-medical-blue mr-2 flex-shrink-0" />
+                              {product}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -129,44 +122,133 @@ const Products = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Quality Assurance
+              Quality You Can Trust
             </h2>
-            <p className="text-lg text-gray-600">
-              Our commitment to excellence in every product we distribute
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              All our products meet international quality standards and are sourced directly 
+              from authorized manufacturers to ensure authenticity and reliability.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-medical-blue text-white rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Heart className="h-8 w-8" />
+              <div className="bg-medical-blue text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-xl font-bold">✓</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Authentic Products</h3>
-              <p className="text-gray-600">
-                All products are sourced directly from manufacturers, ensuring 100% authenticity and quality.
-              </p>
+              <h3 className="font-semibold mb-2">Authentic Products</h3>
+              <p className="text-gray-600 text-sm">Direct sourcing from manufacturers ensures product authenticity</p>
             </div>
-
+            
             <div className="text-center">
-              <div className="bg-medical-red text-white rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Briefcase className="h-8 w-8" />
+              <div className="bg-medical-red text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-xl font-bold">★</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Proper Storage</h3>
-              <p className="text-gray-600">
-                Temperature-controlled storage facilities maintain product integrity from warehouse to delivery.
-              </p>
+              <h3 className="font-semibold mb-2">Quality Certified</h3>
+              <p className="text-gray-600 text-sm">All products meet international quality and safety standards</p>
             </div>
-
+            
             <div className="text-center">
-              <div className="bg-green-600 text-white rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <User className="h-8 w-8" />
+              <div className="bg-green-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-xl font-bold">⚡</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Expert Handling</h3>
-              <p className="text-gray-600">
-                Trained professionals handle all products with the care and expertise they deserve.
-              </p>
+              <h3 className="font-semibold mb-2">Ready Stock</h3>
+              <p className="text-gray-600 text-sm">Immediate availability for urgent medical requirements</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-purple-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-xl font-bold">📋</span>
+              </div>
+              <h3 className="font-semibold mb-2">Documentation</h3>
+              <p className="text-gray-600 text-sm">Complete product documentation and regulatory compliance</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Product Categories */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Product Categories
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-red-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Heart className="h-8 w-8 text-red-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Cardiovascular</h3>
+                <p className="text-gray-600 text-sm">Stents, catheters, and devices for cardiac procedures</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Package className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Ostomy Care</h3>
+                <p className="text-gray-600 text-sm">Comprehensive ostomy products and accessories</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-green-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Stethoscope className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Surgical Instruments</h3>
+                <p className="text-gray-600 text-sm">High-quality surgical tools and equipment</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-purple-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Activity className="h-8 w-8 text-purple-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Diagnostic Equipment</h3>
+                <p className="text-gray-600 text-sm">Advanced diagnostic and monitoring devices</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-yellow-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🩹</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Wound Care</h3>
+                <p className="text-gray-600 text-sm">Advanced wound management solutions</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-indigo-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl">🔬</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Urology Products</h3>
+                <p className="text-gray-600 text-sm">Specialized urological devices and catheters</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-medical-blue text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Need Specific Medical Equipment?
+          </h2>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            Contact us for detailed product information, pricing, and availability. 
+            Our team is ready to assist with your medical equipment requirements.
+          </p>
         </div>
       </section>
     </div>

@@ -1,76 +1,68 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Heart, Users, Award } from "lucide-react";
+import { MapPin, Award, Users, Clock } from "lucide-react";
 
 const Hospitals = () => {
   const hospitals = [
     {
       name: "Lilavati Hospital",
-      specialty: "Multi-specialty",
-      description: "Premier healthcare institution known for advanced medical care and cutting-edge technology."
+      location: "Bandra West",
+      specialty: "Multi-specialty Hospital",
+      description: "Premier healthcare institution known for advanced medical treatments and world-class facilities."
     },
     {
       name: "Kokilaben Dhirubhai Ambani Hospital",
-      specialty: "Multi-specialty",
-      description: "State-of-the-art medical facility with comprehensive healthcare services and world-class infrastructure."
+      location: "Andheri West",
+      specialty: "Super Specialty Hospital",
+      description: "State-of-the-art medical facility with cutting-edge technology and specialized care units."
     },
     {
       name: "Breach Candy Hospital",
-      specialty: "Multi-specialty",
-      description: "Leading healthcare provider with a legacy of excellence in patient care and medical innovation."
+      location: "Breach Candy",
+      specialty: "Multi-specialty Hospital",
+      description: "Historic hospital providing comprehensive healthcare services with modern medical equipment."
     },
     {
       name: "Hinduja Hospital",
-      specialty: "Multi-specialty",
-      description: "Renowned medical institution providing comprehensive healthcare with advanced diagnostic facilities."
+      location: "Mahim",
+      specialty: "Multi-specialty Hospital",
+      description: "Leading healthcare provider with advanced diagnostic and treatment capabilities."
     },
     {
       name: "Bombay Hospital",
-      specialty: "Multi-specialty",
-      description: "Historic medical institution with a reputation for quality healthcare and medical education."
+      location: "Marine Lines",
+      specialty: "Multi-specialty Hospital",
+      description: "Renowned medical institution with a legacy of excellence in patient care and medical education."
     },
     {
       name: "Tata Memorial Hospital",
-      specialty: "Cancer Care",
-      description: "Leading cancer treatment and research center, pioneer in oncology care in India."
+      location: "Parel",
+      specialty: "Cancer Specialty Hospital",
+      description: "Premier cancer treatment and research center with world-class oncology facilities."
     },
     {
       name: "Jaslok Hospital",
-      specialty: "Multi-specialty",
-      description: "Premium healthcare facility known for personalized patient care and advanced medical treatments."
+      location: "Pedder Road",
+      specialty: "Multi-specialty Hospital",
+      description: "Advanced medical care facility known for its specialized treatments and patient services."
     },
     {
       name: "Saifee Hospital",
-      specialty: "Multi-specialty",
-      description: "Modern healthcare institution providing comprehensive medical services with patient-centered approach."
+      location: "Charni Road",
+      specialty: "Multi-specialty Hospital",
+      description: "Modern healthcare facility providing comprehensive medical services and emergency care."
     },
     {
       name: "Nanavati Hospital",
-      specialty: "Multi-specialty",
-      description: "Super-specialty hospital offering world-class healthcare with advanced medical technology."
+      location: "Vile Parle West",
+      specialty: "Super Specialty Hospital",
+      description: "Advanced medical center with state-of-the-art technology and specialized medical departments."
     },
     {
       name: "Hiranandani Hospital",
-      specialty: "Multi-specialty",
-      description: "Comprehensive healthcare provider with state-of-the-art facilities and expert medical professionals."
-    }
-  ];
-
-  const partnerships = [
-    {
-      icon: Heart,
-      title: "Cardiovascular Programs",
-      description: "Supplying advanced cardiac devices and interventional equipment"
-    },
-    {
-      icon: Users,
-      title: "Surgical Departments",
-      description: "Comprehensive surgical instruments and disposables"
-    },
-    {
-      icon: Award,
-      title: "Diagnostic Centers",
-      description: "State-of-the-art diagnostic equipment and testing supplies"
+      location: "Powai",
+      specialty: "Multi-specialty Hospital",
+      description: "Modern healthcare facility with advanced medical infrastructure and patient-centric care."
     }
   ];
 
@@ -82,152 +74,189 @@ const Hospitals = () => {
           <div className="text-center fade-in">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Hospitals We Serve</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Trusted by Mumbai's leading healthcare institutions to deliver 
-              quality medical equipment and reliable supply chain solutions.
+              Trusted partner to Mumbai's leading hospitals, providing world-class medical equipment 
+              and supplies to enhance patient care across the city.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-16 bg-medical-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our Healthcare Partners
-            </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Vedanta Healthcare is proud to serve Mumbai's most prestigious hospitals and 
-              medical institutions. Our partnerships are built on trust, reliability, and 
-              a shared commitment to delivering exceptional patient care through quality 
-              medical equipment and supplies.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {partnerships.map((partnership, index) => (
-              <Card key={partnership.title} className="slide-up hover:shadow-lg transition-all duration-300" style={{ animationDelay: `${index * 0.2}s` }}>
-                <CardContent className="p-6 text-center">
-                  <div className="bg-medical-blue/10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <partnership.icon className="h-8 w-8 text-medical-blue" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3 text-gray-900">{partnership.title}</h3>
-                  <p className="text-gray-600 text-sm">{partnership.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Hospital List */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Leading Medical Institutions
-            </h2>
-            <p className="text-lg text-gray-600">
-              Serving Mumbai's most trusted healthcare providers
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hospitals.map((hospital, index) => (
-              <Card key={hospital.name} className="slide-up hover:shadow-lg transition-all duration-300 h-full" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-6 h-full flex flex-col">
-                  <div className="flex items-start space-x-3 mb-4">
-                    <div className="bg-medical-blue/10 p-2 rounded-lg flex-shrink-0">
-                      <MapPin className="h-5 w-5 text-medical-blue" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{hospital.name}</h3>
-                      <span className="text-sm font-medium text-medical-blue bg-medical-blue/10 px-2 py-1 rounded">
-                        {hospital.specialty}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{hospital.description}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-medical-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Built on Trust & Excellence
-            </h2>
-            <p className="text-lg text-gray-600">
-              What makes us the preferred partner for Mumbai's healthcare institutions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-medical-blue mb-2">10+</div>
-              <div className="text-sm text-gray-600">Major Hospitals</div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-medical-blue mb-2">50+</div>
+              <div className="text-gray-600">Hospitals Served</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-medical-red mb-2">99%</div>
-              <div className="text-sm text-gray-600">On-Time Delivery</div>
+            <div>
+              <div className="text-3xl font-bold text-medical-red mb-2">15+</div>
+              <div className="text-gray-600">Years of Experience</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">24/7</div>
-              <div className="text-sm text-gray-600">Support Available</div>
+            <div>
+              <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
+              <div className="text-gray-600">Emergency Support</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">100%</div>
-              <div className="text-sm text-gray-600">Authentic Products</div>
+            <div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
+              <div className="text-gray-600">Genuine Products</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Partnership Benefits */}
-      <section className="py-16 bg-medical-blue text-white">
+      {/* Hospitals Grid */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Partnership Benefits
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Leading Healthcare Institutions
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
-              Why leading hospitals choose Vedanta Healthcare as their trusted medical equipment partner
+            <p className="text-lg text-gray-600">
+              Mumbai's premier hospitals trust us for their medical equipment and supply needs
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-white/10 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Dedicated Account Management</h3>
-                  <p className="text-blue-100 text-sm">
-                    Personalized service with dedicated account managers understanding your specific needs
-                  </p>
-                </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {hospitals.map((hospital, index) => (
+              <Card key={hospital.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="bg-medical-blue/10 p-3 rounded-lg">
+                      <Award className="h-6 w-6 text-medical-blue" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{hospital.name}</h3>
+                      <div className="flex items-center text-sm text-gray-500 mb-2">
+                        <MapPin className="h-4 w-4 mr-1" />
+                        {hospital.location}
+                      </div>
+                      <div className="text-sm font-medium text-medical-blue mb-3">{hospital.specialty}</div>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-sm">{hospital.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              How We Support Our Hospital Partners
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-medical-blue text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Clock className="h-8 w-8" />
               </div>
-              
-              <div className="text-center">
-                <div className="bg-white/10 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Priority Supply Chain</h3>
-                  <p className="text-blue-100 text-sm">
-                    Guaranteed inventory availability and priority delivery for critical medical supplies
-                  </p>
-                </div>
+              <h3 className="text-lg font-semibold mb-3">24/7 Availability</h3>
+              <p className="text-gray-600 text-sm">
+                Round-the-clock support for emergency medical equipment requirements
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-medical-red text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Users className="h-8 w-8" />
               </div>
-              
-              <div className="text-center">
-                <div className="bg-white/10 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3">Technical Training</h3>
-                  <p className="text-blue-100 text-sm">
-                    Comprehensive training and support for new equipment and medical devices
-                  </p>
-                </div>
+              <h3 className="text-lg font-semibold mb-3">Dedicated Support</h3>
+              <p className="text-gray-600 text-sm">
+                Assigned account managers for personalized service and quick response
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-green-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-xl font-bold">⚡</span>
               </div>
+              <h3 className="text-lg font-semibold mb-3">Fast Delivery</h3>
+              <p className="text-gray-600 text-sm">
+                Same-day delivery for urgent requirements across Mumbai
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-purple-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-xl font-bold">📋</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Inventory Management</h3>
+              <p className="text-gray-600 text-sm">
+                Custom inventory solutions and supply chain management
+              </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What Our Hospital Partners Say
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-600 mb-6 italic">
+                  "Vedanta Healthcare has been our trusted partner for years. Their reliability 
+                  and quality products are essential to our operations."
+                </p>
+                <div className="text-sm text-gray-500">
+                  - Mumbai Healthcare Professional
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-600 mb-6 italic">
+                  "Exceptional service and genuine products. They understand the urgency 
+                  of medical requirements and always deliver on time."
+                </p>
+                <div className="text-sm text-gray-500">
+                  - Hospital Procurement Manager
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-600 mb-6 italic">
+                  "Their 24/7 support has been invaluable for our emergency procedures. 
+                  Professional team with deep healthcare industry knowledge."
+                </p>
+                <div className="text-sm text-gray-500">
+                  - Chief Medical Officer
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership CTA */}
+      <section className="py-16 bg-medical-blue text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Join Mumbai's Leading Hospitals
+          </h2>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            Partner with Vedanta Healthcare for reliable medical equipment supply, 
+            exceptional service, and support that helps you focus on patient care.
+          </p>
         </div>
       </section>
     </div>

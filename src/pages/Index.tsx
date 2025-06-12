@@ -1,26 +1,99 @@
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Briefcase, MapPin, Users } from "lucide-react";
+import { Heart, Briefcase, MapPin, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    "https://drive.google.com/uc?export=view&id=1ihqQEwWt9lvcPG7yJ1pPheYTYpFdVbzs",
+    "https://drive.google.com/uc?export=view&id=1m7-Ll9eC_YPy970JhGrrWnSpoy8rQZFB",
+    "https://drive.google.com/uc?export=view&id=1ke5fKjCJU9ACPRJbC76RGzonVVQncgiD",
+    "https://drive.google.com/uc?export=view&id=1x5l4pRIslEDg5dGnahVNaJeqOhOpiP5A"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-medical-blue to-blue-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      {/* Hero Section with Slideshow */}
+      <section className="relative h-screen overflow-hidden">
+        {/* Slideshow Background */}
+        <div className="absolute inset-0">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={slide}
+                alt={`Vedanta Healthcare ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide ? "bg-white" : "bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 fade-in">
               Empowering Diagnostics.
               <br />
               <span className="text-medical-light">Enabling Care.</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto fade-in-delay">
               Mumbai's trusted distributor of high-quality diagnostic and surgical products 
               from world-renowned brands to leading hospitals.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-delay">
               <Button size="lg" variant="secondary" asChild>
                 <Link to="/products">View Our Products</Link>
               </Button>
