@@ -9,10 +9,10 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
-    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1583912086296-8c8b4f7b6b7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0016.jpg",
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0017.jpg",
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0018.jpg",
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0019.jpg"
   ];
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Index = () => {
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -47,9 +47,9 @@ const Index = () => {
                 src={slide}
                 alt={`Vedanta Healthcare ${index + 1}`}
                 className="w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
                 onError={(e) => {
                   console.log(`Failed to load image ${index + 1}:`, slide);
-                  e.currentTarget.style.display = 'none';
                 }}
                 onLoad={() => {
                   console.log(`Successfully loaded image ${index + 1}:`, slide);
@@ -57,53 +57,61 @@ const Index = () => {
               />
             </div>
           ))}
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          aria-label="Previous image"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          aria-label="Next image"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? "bg-white" : "bg-white/50"
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/70"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 fade-in">
+        <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in leading-tight">
               Empowering Diagnostics.
               <br />
               <span className="text-medical-light">Enabling Care.</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto fade-in-delay">
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto fade-in-delay leading-relaxed">
               Mumbai's trusted distributor of global medical brands.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-delay">
-              <Button size="lg" variant="secondary" asChild>
+              <Button size="lg" variant="secondary" asChild className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                 <Link to="/products">View Our Products</Link>
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-medical-blue" asChild>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-white border-white hover:bg-white hover:text-medical-blue text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" 
+                asChild
+              >
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
