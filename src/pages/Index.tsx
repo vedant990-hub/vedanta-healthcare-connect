@@ -12,7 +12,8 @@ const Index = () => {
     "https://cdn.openai.com/user-images/IMG-20250612-WA0016.jpg",
     "https://cdn.openai.com/user-images/IMG-20250612-WA0017.jpg",
     "https://cdn.openai.com/user-images/IMG-20250612-WA0018.jpg",
-    "https://cdn.openai.com/user-images/IMG-20250612-WA0019.jpg"
+    "https://cdn.openai.com/user-images/IMG-20250612-WA0019.jpg",
+    "/lovable-uploads/5fcbf2c2-cf19-4b1a-a6ce-89d7cc8074fb.png"
   ];
 
   useEffect(() => {
