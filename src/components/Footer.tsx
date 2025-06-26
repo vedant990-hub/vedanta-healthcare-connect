@@ -1,5 +1,5 @@
 
-import { Heart, MapPin, Clock } from "lucide-react";
+import { Heart, MapPin, Clock, Phone, Mail } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -18,40 +18,53 @@ export const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 text-sm">
-              Mumbai's trusted distributor of high-quality diagnostic and surgical products 
-              from leading brands to major hospitals.
+              Founded in 2012 by Mr. Vishnudas Pawar, Mumbai's trusted distributor of high-quality 
+              diagnostic and surgical products from leading global brands.
             </p>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Contact Information</h4>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-medical-red" />
-                <span className="text-sm text-gray-300">Mumbai, India</span>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-4 w-4 text-medical-red mt-1 flex-shrink-0" />
+                <span className="text-sm text-gray-300">
+                  Office no.1, Pragnya CHS, Akurli Road,<br />
+                  Kandivali (E), Mumbai - 400101
+                </span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4 text-medical-red" />
+              <div className="flex items-center space-x-3">
+                <Phone className="h-4 w-4 text-medical-red flex-shrink-0" />
+                <span className="text-sm text-gray-300">+91 9833166613</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-4 w-4 text-medical-red flex-shrink-0" />
+                <span className="text-sm text-gray-300">Vedanta1812@gmail.com</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Clock className="h-4 w-4 text-medical-red flex-shrink-0" />
                 <span className="text-sm text-gray-300">Mon - Fri: 9:00 AM - 6:00 PM</span>
               </div>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Partners */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Our Partners</h4>
             <div className="space-y-2">
-              <p className="text-sm text-gray-300">• Cordis</p>
-              <p className="text-sm text-gray-300">• Coloplast</p>
               <p className="text-sm text-gray-300">• Johnson & Johnson</p>
+              <p className="text-sm text-gray-300 ml-4">- Cordis, Ethicon Bio-Surgery, Biosense Webster</p>
+              <p className="text-sm text-gray-300">• Coloplast</p>
+              <p className="text-sm text-gray-300">• SHI Mediwere</p>
+              <p className="text-sm text-gray-300">• Medline Healthcare</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            © 2024 Vedanta Healthcare. All rights reserved. | Trust | Quality | Commitment
+            © 2024 Vedanta Healthcare. All rights reserved. | Founded 2012 | Integrity | Patient-Centered | Quality-First
           </p>
         </div>
       </div>
