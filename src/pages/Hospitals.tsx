@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Award, Users, Clock } from "lucide-react";
+import { MapPin, Award, Users, Clock, Plus } from "lucide-react";
 
 const Hospitals = () => {
   const hospitals = [
@@ -64,52 +64,10 @@ const Hospitals = () => {
       description: "Modern healthcare facility with advanced medical infrastructure and patient-centric care."
     },
     {
-      name: "King Edward Memorial Hospital",
-      location: "Parel",
-      specialty: "Government Multi-specialty Hospital",
-      description: "Leading government hospital with comprehensive medical services and teaching facilities."
-    },
-    {
-      name: "Sir H. N. Reliance Foundation Hospital",
-      location: "Girgaon",
-      specialty: "Multi-specialty Hospital",
-      description: "Advanced healthcare facility with cutting-edge medical technology and patient-focused care."
-    },
-    {
-      name: "Global Hospital",
-      location: "Lower Parel",
-      specialty: "Multi-specialty Hospital",
-      description: "International standard healthcare facility with specialized medical departments."
-    },
-    {
       name: "Fortis Hospital",
       location: "Mulund",
       specialty: "Multi-specialty Hospital",
       description: "Modern healthcare provider with advanced medical equipment and comprehensive services."
-    },
-    {
-      name: "Jupiter Hospital",
-      location: "Thane",
-      specialty: "Multi-specialty Hospital",
-      description: "Premium healthcare facility serving Mumbai metropolitan area with specialized care units."
-    },
-    {
-      name: "Wockhardt Hospital",
-      location: "Mumbai Central",
-      specialty: "Multi-specialty Hospital",
-      description: "Renowned healthcare institution with advanced cardiac and critical care facilities."
-    },
-    {
-      name: "Apollo Hospital",
-      location: "Navi Mumbai",
-      specialty: "Multi-specialty Hospital",
-      description: "Leading healthcare chain providing comprehensive medical services and specialized treatments."
-    },
-    {
-      name: "Criticare Hospital",
-      location: "Andheri West",
-      specialty: "Multi-specialty Hospital",
-      description: "Advanced medical facility specializing in critical care and emergency medical services."
     }
   ];
 
@@ -165,7 +123,7 @@ const Hospitals = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hospitals.slice(0, 10).map((hospital, index) => (
+            {hospitals.map((hospital, index) => (
               <Card key={hospital.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4 mb-4">
@@ -185,10 +143,16 @@ const Hospitals = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-xl text-gray-500 font-medium">...and many more.</p>
+            
+            {/* Final Card with Plus Symbol */}
+            <Card className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${hospitals.length * 0.1}s` }}>
+              <CardContent className="p-6 h-full flex flex-col items-center justify-center text-center">
+                <div className="bg-medical-blue/10 p-6 rounded-full mb-4">
+                  <Plus className="h-12 w-12 text-medical-blue" />
+                </div>
+                <p className="text-lg font-semibold text-gray-700">many more</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
