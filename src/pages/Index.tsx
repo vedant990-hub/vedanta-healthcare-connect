@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,21 +6,31 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
   
   const slides = [
-    "https://cdn.openai.com/user-images/IMG-20250612-WA0016.jpg",
-    "https://cdn.openai.com/user-images/IMG-20250612-WA0017.jpg",
-    "https://cdn.openai.com/user-images/IMG-20250612-WA0018.jpg",
-    "https://cdn.openai.com/user-images/IMG-20250612-WA0019.jpg",
-    "/lovable-uploads/5fcbf2c2-cf19-4b1a-a6ce-89d7cc8074fb.png"
+    "/lovable-uploads/award-photo.jpg",
+    "/lovable-uploads/srilanka.png",
+    "/lovable-uploads/group-photo.jpg",
+    "/lovable-uploads/solo.jpg"
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+      setCurrentSlide((prev) => {
+        if (direction === 1 && prev === slides.length - 1) {
+          setDirection(-1);
+          return prev - 1;
+        } else if (direction === -1 && prev === 0) {
+          setDirection(1);
+          return prev + 1;
+        } else {
+          return prev + direction;
+        }
+      });
+    }, 8000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, direction]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -93,12 +102,10 @@ const Index = () => {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white max-w-4xl mx-auto">
+        <div className="relative z-10 flex items-end justify-center h-full px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white max-w-4xl mx-auto mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in leading-tight">
-              Empowering Diagnostics.
-              <br />
-              <span className="text-medical-light">Enabling Care.</span>
+              Vedanta Healthcare
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto fade-in-delay leading-relaxed">
               Mumbai's trusted distributor of global medical brands.
@@ -110,7 +117,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-white border-white hover:bg-white hover:text-medical-blue text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" 
+                className="bg-white text-medical-blue border-white text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4" 
                 asChild
               >
                 <Link to="/contact">Contact Us</Link>
@@ -121,7 +128,7 @@ const Index = () => {
       </section>
 
       {/* Company Introduction */}
-      <section className="py-16 bg-medical-light">
+      <section className="py-16 bg-blue-50 border-b border-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in-delay">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -139,7 +146,7 @@ const Index = () => {
       </section>
 
       {/* Feature Cards */}
-      <section className="py-16">
+      <section className="py-16 bg-blue-50 border-b border-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="slide-up hover:shadow-lg transition-shadow duration-300">
@@ -191,7 +198,7 @@ const Index = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -233,21 +240,6 @@ const Index = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-medical-blue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Partner with Us?
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Connect with Vedanta Healthcare for your medical equipment needs
-          </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/contact">Get in Touch</Link>
-          </Button>
         </div>
       </section>
     </div>

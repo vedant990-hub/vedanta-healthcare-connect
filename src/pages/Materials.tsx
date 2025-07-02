@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Package, CheckCircle, Clock, Shield } from "lucide-react";
 
@@ -7,68 +6,34 @@ const Materials = () => {
     {
       category: "Cardiovascular Devices",
       items: [
-        "Drug-Eluting Stents",
+        "Drug-Eluting Ballons",
         "Balloon Angioplasty Catheters",
         "Guidewires",
         "Introducer Sheaths",
         "Vascular Closure Devices",
-        "Embolic Protection Devices"
+        "Guiding Catheters",
+        "Ablation Catheters",
+        "Diagnostic"
       ],
       color: "bg-red-500"
     },
-    {
-      category: "Surgical Instruments",
-      items: [
-        "Surgical Kits",
-        "Laparoscopic Instruments",
-        "Electrosurgical Devices",
-        "Sutures and Wound Closure",
-        "Surgical Staplers",
-        "Hemostatic Agents"
-      ],
-      color: "bg-blue-500"
-    },
+    
     {
       category: "Ostomy & Wound Care",
       items: [
         "Ostomy Bags",
         "Skin Barriers",
-        "Ostomy Accessories",
-        "Wound Dressings",
-        "Hydrocolloid Patches",
-        "Compression Therapy"
+        "Ostomy Accessories"
       ],
       color: "bg-green-500"
     },
-    {
-      category: "Urology Products",
-      items: [
-        "Urological Catheters",
-        "Drainage Bags",
-        "Catheter Insertion Kits",
-        "Continence Care Products",
-        "Intermittent Catheters",
-        "Foley Catheters"
-      ],
-      color: "bg-purple-500"
-    },
-    {
-      category: "Diagnostic Equipment",
-      items: [
-        "Patient Monitoring Devices",
-        "Diagnostic Kits",
-        "Laboratory Equipment",
-        "Imaging Accessories",
-        "Testing Consumables",
-        "Quality Control Materials"
-      ],
-      color: "bg-indigo-500"
-    },
+    
+    
     {
       category: "Disposable Medical Supplies",
       items: [
         "Surgical Gloves",
-        "Syringes and Needles",
+        "Syringes and Needles", 
         "Medical Masks",
         "Disposable Gowns",
         "Sterile Drapes",
@@ -145,7 +110,7 @@ const Materials = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {materialCategories.map((category, index) => (
+            {materialCategories.filter(category => category.category !== "Disposable Medical Supplies").map((category, index) => (
               <Card key={category.category} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-4 mb-6">
@@ -156,7 +121,32 @@ const Materials = () => {
                       <h3 className="text-xl font-bold text-gray-900 mb-3">{category.category}</h3>
                     </div>
                   </div>
-                  
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {category.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-start text-gray-600">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Centered Disposable Medical Supplies Card */}
+          <div className="flex justify-center mt-8">
+            {materialCategories.filter(category => category.category === "Disposable Medical Supplies").map((category, index) => (
+              <Card key={category.category} className="slide-up hover:shadow-lg transition-shadow duration-300 w-full max-w-xl" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4 mb-6">
+                    <div className={`${category.color} text-white p-3 rounded-lg`}>
+                      <Package className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{category.category}</h3>
+                    </div>
+                  </div>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {category.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start text-gray-600">
