@@ -32,8 +32,8 @@ const About = () => {
               </p>
               <p className="text-lg text-gray-600 mb-6">
                 Over the years, we have established strategic channel partnerships with some of the 
-                world's most respected healthcare companies, including Johnson & Johnson (Cordis, 
-                Ethicon Bio-Surgery, Biosense Webster), Coloplast, SHI Mediwere, and Medline Healthcare.
+                world's most respected healthcare companies, including Johnson & Johnson (Ethicon Bio-Surgery, 
+                Biosense Webster), Cordis, Coloplast, SHI Mediwere, and Medline Healthcare.
               </p>
               <p className="text-lg text-gray-600">
                 Today, our team consists of dynamic entrepreneurs with over 12 years of specialized 
@@ -103,21 +103,31 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Strategic Partnerships
+              Strategic Channel Partnerships
             </h2>
             <p className="text-lg text-gray-600">
               Channel partnerships with world-renowned healthcare companies
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6 text-center">
                 <div className="bg-red-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Handshake className="h-8 w-8 text-red-600" />
                 </div>
                 <h3 className="font-semibold mb-2">Johnson & Johnson</h3>
-                <p className="text-gray-600 text-sm">Cordis, Ethicon Bio-Surgery, Biosense Webster</p>
+                <p className="text-gray-600 text-sm">Ethicon Bio-Surgery, Biosense Webster</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="p-6 text-center">
+                <div className="bg-orange-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Handshake className="h-8 w-8 text-orange-600" />
+                </div>
+                <h3 className="font-semibold mb-2">Cordis</h3>
+                <p className="text-gray-600 text-sm">Cardiovascular Solutions</p>
               </CardContent>
             </Card>
             

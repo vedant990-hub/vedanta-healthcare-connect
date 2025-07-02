@@ -49,12 +49,13 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Partners */}
+          {/* Channel Partners */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Our Partners</h4>
+            <h4 className="text-lg font-semibold">Our Channel Partners</h4>
             <div className="space-y-2">
               <p className="text-sm text-gray-300">• Johnson & Johnson</p>
-              <p className="text-sm text-gray-300 ml-4">- Cordis, Ethicon Bio-Surgery, Biosense Webster</p>
+              <p className="text-sm text-gray-300 ml-4">- Ethicon Bio-Surgery, Biosense Webster</p>
+              <p className="text-sm text-gray-300">• Cordis</p>
               <p className="text-sm text-gray-300">• Coloplast</p>
               <p className="text-sm text-gray-300">• SHI Mediwere</p>
               <p className="text-sm text-gray-300">• Medline Healthcare</p>

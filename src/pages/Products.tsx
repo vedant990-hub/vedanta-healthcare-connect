@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Shield, Scissors, Package, Activity, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,8 +60,13 @@ const Products = () => {
   const brands = [
     {
       name: "Johnson & Johnson",
-      divisions: ["Cordis", "Ethicon Bio-Surgery", "Biosense Webster"],
+      divisions: ["Ethicon Bio-Surgery", "Biosense Webster"],
       color: "bg-red-600"
+    },
+    {
+      name: "Cordis",
+      divisions: ["Cardiovascular Solutions"],
+      color: "bg-orange-600"
     },
     {
       name: "Coloplast", 
@@ -140,19 +144,19 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Partner Brands */}
+      {/* Channel Partners */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Trusted Partners
+              Our Trusted Channel Partners
             </h2>
             <p className="text-lg text-gray-600">
               Channel partnerships with leading global healthcare companies
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {brands.map((brand, index) => (
               <Card key={brand.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-8">
