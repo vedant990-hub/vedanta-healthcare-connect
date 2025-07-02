@@ -165,7 +165,7 @@ const Hospitals = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hospitals.map((hospital, index) => (
+            {hospitals.slice(0, 10).map((hospital, index) => (
               <Card key={hospital.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4 mb-4">
@@ -185,6 +185,10 @@ const Hospitals = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-xl text-gray-500 font-medium">...and many more.</p>
           </div>
         </div>
       </section>
