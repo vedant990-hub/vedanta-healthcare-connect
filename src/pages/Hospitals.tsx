@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Award, Users, Clock } from "lucide-react";
 
@@ -63,6 +62,54 @@ const Hospitals = () => {
       location: "Powai",
       specialty: "Multi-specialty Hospital",
       description: "Modern healthcare facility with advanced medical infrastructure and patient-centric care."
+    },
+    {
+      name: "King Edward Memorial Hospital",
+      location: "Parel",
+      specialty: "Government Multi-specialty Hospital",
+      description: "Leading government hospital with comprehensive medical services and teaching facilities."
+    },
+    {
+      name: "Sir H. N. Reliance Foundation Hospital",
+      location: "Girgaon",
+      specialty: "Multi-specialty Hospital",
+      description: "Advanced healthcare facility with cutting-edge medical technology and patient-focused care."
+    },
+    {
+      name: "Global Hospital",
+      location: "Lower Parel",
+      specialty: "Multi-specialty Hospital",
+      description: "International standard healthcare facility with specialized medical departments."
+    },
+    {
+      name: "Fortis Hospital",
+      location: "Mulund",
+      specialty: "Multi-specialty Hospital",
+      description: "Modern healthcare provider with advanced medical equipment and comprehensive services."
+    },
+    {
+      name: "Jupiter Hospital",
+      location: "Thane",
+      specialty: "Multi-specialty Hospital",
+      description: "Premium healthcare facility serving Mumbai metropolitan area with specialized care units."
+    },
+    {
+      name: "Wockhardt Hospital",
+      location: "Mumbai Central",
+      specialty: "Multi-specialty Hospital",
+      description: "Renowned healthcare institution with advanced cardiac and critical care facilities."
+    },
+    {
+      name: "Apollo Hospital",
+      location: "Navi Mumbai",
+      specialty: "Multi-specialty Hospital",
+      description: "Leading healthcare chain providing comprehensive medical services and specialized treatments."
+    },
+    {
+      name: "Criticare Hospital",
+      location: "Andheri West",
+      specialty: "Multi-specialty Hospital",
+      description: "Advanced medical facility specializing in critical care and emergency medical services."
     }
   ];
 
@@ -74,7 +121,7 @@ const Hospitals = () => {
           <div className="text-center fade-in">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Hospitals We Serve</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Trusted partner to Mumbai's leading hospitals, providing world-class medical equipment 
+              Trusted channel partner to Mumbai's leading hospitals, providing world-class medical equipment 
               and supplies to enhance patient care across the city.
             </p>
           </div>
@@ -147,7 +194,7 @@ const Hospitals = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How We Support Our Hospital Partners
+              How We Support Our Hospital Channel Partners
             </h2>
           </div>
 
@@ -200,7 +247,7 @@ const Hospitals = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Hospital Partners Say
+              What Our Hospital Channel Partners Say
             </h2>
           </div>
 
@@ -209,7 +256,7 @@ const Hospitals = () => {
               <CardContent className="p-8 text-center">
                 <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
                 <p className="text-gray-600 mb-6 italic">
-                  "Vedanta Healthcare has been our trusted partner for years. Their reliability 
+                  "Vedanta Healthcare has been our trusted channel partner for years. Their reliability 
                   and quality products are essential to our operations."
                 </p>
                 <div className="text-sm text-gray-500">
@@ -254,7 +301,7 @@ const Hospitals = () => {
             Join Mumbai's Leading Hospitals
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Partner with Vedanta Healthcare for reliable medical equipment supply, 
+            Channel partner with Vedanta Healthcare for reliable medical equipment supply, 
             exceptional service, and support that helps you focus on patient care.
           </p>
         </div>
