@@ -275,27 +275,6 @@ const Contact = () => {
           </Card>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-medical-blue text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Partner with Us?
-          </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Join Mumbai's leading hospitals who trust Vedanta Healthcare 
-            for their medical equipment needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              Request Product Catalog
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-medical-blue">
-              Schedule a Meeting
-            </Button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

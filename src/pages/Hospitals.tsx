@@ -123,26 +123,82 @@ const Hospitals = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hospitals.map((hospital, index) => (
-              <Card key={hospital.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4 mb-4">
-                    <div className="bg-medical-blue/10 p-3 rounded-lg">
-                      <Award className="h-6 w-6 text-medical-blue" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{hospital.name}</h3>
-                      <div className="flex items-center text-sm text-gray-500 mb-2">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        {hospital.location}
+            {hospitals.map((hospital, index) => {
+              // Map hospital names to image filenames
+              const hospitalImages = {
+                "Lilavati Hospital": "/lovable-uploads/lilavati.jpg",
+                "Kokilaben Dhirubhai Ambani Hospital": "/lovable-uploads/Kokilaben-Dhirubhai-Ambani-Hospital.jpg",
+                "Breach Candy Hospital": "/lovable-uploads/new-breach-candy-hospital.jpg",
+                "Hinduja Hospital": "/lovable-uploads/hinduja-hospital.jpg",
+                "Bombay Hospital": "/lovable-uploads/bombay-hospital.jpg",
+                "Tata Memorial Hospital": "/lovable-uploads/tata-memorial-hospital.jpg",
+                "Jaslok Hospital": "/lovable-uploads/jaslok-hospital.jpg",
+                "Saifee Hospital": "/lovable-uploads/Saifee-Hospital.jpeg",
+                "Nanavati Hospital": "/lovable-uploads/nanavati-hospital.jpg",
+                "Hiranandani Hospital": "/lovable-uploads/hiranandani-Hospital.jpg",
+                "Fortis Hospital": "/lovable-uploads/Fortis-Hospital.jpg",
+              };
+              const bgImage = hospitalImages[hospital.name];
+              const hasBg = Boolean(bgImage);
+              return (
+                <Card
+                  key={hospital.name}
+                  className={`slide-up hover:shadow-lg transition-shadow duration-300${hasBg ? ' !bg-transparent !border-0' : ''}`}
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    ...(hasBg
+                      ? {
+                          backgroundImage: `url(${bgImage})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          color: '#fff',
+                          position: 'relative',
+                          overflow: 'hidden',
+                          borderRadius: '1rem',
+                          height: '100%',
+                          width: '100%',
+                        }
+                      : {}),
+                  }}
+                >
+                  <CardContent
+                    className={
+                      hasBg ? "p-6 bg-black/60 rounded-xl" : "p-6"
+                    }
+                  >
+                    <div className="flex items-start space-x-4 mb-4">
+                      <div className="bg-medical-blue/10 p-3 rounded-lg">
+                        <Award className="h-6 w-6 text-medical-blue" />
                       </div>
-                      <div className="text-sm font-medium text-medical-blue mb-3">{hospital.specialty}</div>
+                      <div className="flex-1">
+                        <h3
+                          className="text-lg font-semibold text-gray-900 mb-1"
+                          style={hasBg ? { color: '#fff' } : {}}
+                        >
+                          {hospital.name}
+                        </h3>
+                        <div
+                          className="flex items-center text-sm text-gray-500 mb-2"
+                          style={hasBg ? { color: '#fff' } : {}}
+                        >
+                          <MapPin className="h-4 w-4 mr-1" />
+                          {hospital.location}
+                        </div>
+                        <div
+                          className="text-sm font-medium text-medical-blue mb-3"
+                          style={hasBg ? { color: '#fff' } : {}}
+                        >
+                          {hospital.specialty}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-gray-600 text-sm">{hospital.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+                    <p className={hasBg ? "text-white text-sm" : "text-gray-600 text-sm"}>
+                      {hospital.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
             
             {/* Final Card with Plus Symbol */}
             <Card className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${hospitals.length * 0.1}s` }}>

@@ -105,7 +105,7 @@ const Index = () => {
         <div className="relative z-10 flex items-end justify-center h-full px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white max-w-4xl mx-auto mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in leading-tight">
-              Vedanta Healthcare
+              VEDANTA HEALTHCARE
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto fade-in-delay leading-relaxed">
               Mumbai's trusted distributor of global medical brands.

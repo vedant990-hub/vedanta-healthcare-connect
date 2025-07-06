@@ -1,9 +1,117 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Shield, Scissors, Package, Activity, Stethoscope } from "lucide-react";
+import { Heart, Shield, Scissors, Package, Activity, Stethoscope, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 
 const Products = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const productSlides = [
+    {
+      image: "/lovable-uploads/DEB-Drug Elluting Ballon.jpg",
+      title: "DEB - Drug Eluting Balloon",
+      description: "Advanced cardiovascular solutions for interventional procedures",
+      category: "Cardiovascular Products"
+    },
+    {
+      image: "/lovable-uploads/RAILWAY-Sheathless.gif",
+      title: "Railway Sheathless",
+      description: "Innovative sheathless technology for vascular access",
+      category: "Cardiovascular Products"
+    },
+    {
+      image: "/lovable-uploads/guiding cath.jpg",
+      title: "Guiding Catheter",
+      description: "Precision guiding catheters for interventional procedures",
+      category: "Cardiovascular Products"
+    },
+    {
+      image: "/lovable-uploads/cordis-avanti-sheath-introducer.jpg",
+      title: "Cordis Avanti Sheath Introducer",
+      description: "Advanced sheath introducer system for vascular access",
+      category: "Cardiovascular Products"
+    },
+    {
+      image: "/lovable-uploads/Rain.png",
+      title: "Rain Sheath",
+      description: "Innovative sheath technology for vascular procedures",
+      category: "Cardiovascular Products"
+    },
+    {
+      image: "/lovable-uploads/coloplast-bag.webp",
+      title: "Coloplast Bag",
+      description: "High-quality ostomy and continence care products",
+      category: "Specialty Products"
+    },
+    {
+      image: "/lovable-uploads/Coloplast-all.webp",
+      title: "Coloplast All Products",
+      description: "Comprehensive range of Coloplast medical solutions",
+      category: "Specialty Products"
+    },
+    {
+      image: "/lovable-uploads/all2.avif",
+      title: "All Products Collection",
+      description: "Complete range of medical products and solutions",
+      category: "All Products"
+    },
+    {
+      image: "/lovable-uploads/biosense-webster.jpg",
+      title: "Biosense Webster",
+      description: "Advanced electrophysiology and cardiac mapping solutions",
+      category: "Cardiovascular Products"
+    },
+    {
+      image: "/lovable-uploads/decca.jpg",
+      title: "Decca Polar Catheters",
+      description: "Specialized polar catheter solutions for cardiac procedures",
+      category: "Specialty Products"
+    },
+    {
+      image: "/lovable-uploads/3d.jpg",
+      title: "3D Medical Imaging",
+      description: "Advanced 3D imaging and visualization solutions",
+      category: "Specialty Products"
+    },
+    {
+      image: "/lovable-uploads/ot.jpg",
+      title: "Operating Theater Solutions",
+      description: "Complete operating theater and surgical equipment",
+      category: "Surgical Supplies"
+    },
+    {
+      image: "/lovable-uploads/ambi.jpg_large",
+      title: "Ambi Medical Solutions",
+      description: "Innovative medical devices and healthcare solutions",
+      category: "Specialty Products"
+    },
+    {
+      image: "/lovable-uploads/infiniti.jpg",
+      title: "Infiniti Medical Solutions",
+      description: "Cutting-edge technology for advanced healthcare needs",
+      category: "Specialty Products"
+    }
+    // Add more slides here as you upload more product images
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % productSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + productSlides.length) % productSlides.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000); // Auto-advance every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [currentSlide]);
+
   const productCategories = [
     {
       title: "Cardiovascular Products",
@@ -16,7 +124,7 @@ const Products = () => {
         "Catheters - Diagnostic and therapeutic catheters",
         "PTCA Wires - Percutaneous transluminal coronary angioplasty wires",
         "Balloons - Angioplasty and specialty balloons",
-        "Stents - Drug-eluting and bare metal stents"
+        "DEB - Drug Eluting Ballons"
       ]
     },
     {
@@ -52,7 +160,14 @@ const Products = () => {
       color: "bg-purple-500",
       description: "Specialized medical products for specific patient needs",
       products: [
-        "Infected Patient Apparel Set (HIV-specific) - Complete protective apparel for high-risk procedures"
+        "Ablation Catheters",
+        "Decca polar Catheters", 
+        "Quadra Polar Catheters",
+        "Helo Catheters",
+        "Laso Catheters",
+        "Pentaray Catheters",
+
+        
       ]
     }
   ];
@@ -60,27 +175,22 @@ const Products = () => {
   const brands = [
     {
       name: "Johnson & Johnson",
-      divisions: ["Ethicon Bio-Surgery", "Biosense Webster"],
       color: "bg-red-600"
     },
     {
       name: "Cordis",
-      divisions: ["Cardiovascular Solutions"],
       color: "bg-orange-600"
     },
     {
-      name: "Coloplast", 
-      divisions: ["Ostomy Care", "Urology", "Wound Care"],
+      name: "Coloplast",
       color: "bg-blue-600"
     },
     {
       name: "SHI Mediwere",
-      divisions: ["Medical Equipment Solutions"],
       color: "bg-green-600"
     },
     {
       name: "Medline Healthcare",
-      divisions: ["Healthcare Products & Supplies"],
       color: "bg-purple-600"
     }
   ];
@@ -96,6 +206,73 @@ const Products = () => {
               Comprehensive range of high-quality medical products from world-renowned manufacturers, 
               serving Mumbai's leading hospitals with excellence since 2012.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Slideshow */}
+      <section className="py-16 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="relative">
+            <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-2xl bg-blue-50">
+              {/* Watermark */}
+              <span
+                className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
+                aria-hidden="true"
+                style={{ zIndex: 1 }}
+              >
+                <span className="text-green-400 text-5xl md:text-7xl lg:text-8xl font-extrabold opacity-10 whitespace-nowrap">
+                  Vedanta Healthcare
+                </span>
+              </span>
+              <img
+                src={productSlides[currentSlide].image}
+                alt={productSlides[currentSlide].title}
+                className="w-full h-full object-contain bg-white transition-all duration-500 ease-in-out relative z-10"
+              />
+              
+
+              
+              {/* Navigation arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 backdrop-blur-sm text-white hover:bg-black/80 transition-all duration-300 shadow-lg"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 backdrop-blur-sm text-white hover:bg-black/80 transition-all duration-300 shadow-lg"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </div>
+            
+            {/* Slide indicators */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {productSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'bg-medical-blue' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+            {/* Next Button */}
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={nextSlide}
+                className="px-6 py-2 bg-green-600 text-white font-semibold rounded-full shadow hover:bg-green-700 transition-all duration-200"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -167,12 +344,7 @@ const Products = () => {
                     <h3 className="text-xl font-bold text-gray-900">{brand.name}</h3>
                   </div>
                   <div className="space-y-2">
-                    {brand.divisions.map((division, divIndex) => (
-                      <div key={divIndex} className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-medical-blue rounded-full mr-3"></div>
-                        {division}
-                      </div>
-                    ))}
+                    {/* Removed divisions as per edit hint */}
                   </div>
                 </CardContent>
               </Card>
@@ -244,8 +416,8 @@ const Products = () => {
             <Button size="lg" variant="secondary" asChild>
               <Link to="/contact">Request Quote</Link>
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-medical-blue">
-              <a href="mailto:Vedanta1812@gmail.com">Email: Vedanta1812@gmail.com</a>
+            <Button size="lg" variant="outline" className="bg-white text-medical-blue border-medical-blue">
+              <a href="mailto:Vedanta1812@gmail.com" className="font-semibold">Email: Vedanta1812@gmail.com</a>
             </Button>
           </div>
         </div>

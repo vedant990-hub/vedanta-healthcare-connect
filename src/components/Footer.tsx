@@ -54,7 +54,6 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold">Our Channel Partners</h4>
             <div className="space-y-2">
               <p className="text-sm text-gray-300">• Johnson & Johnson</p>
-              <p className="text-sm text-gray-300 ml-4">- Ethicon Bio-Surgery, Biosense Webster</p>
               <p className="text-sm text-gray-300">• Cordis</p>
               <p className="text-sm text-gray-300">• Coloplast</p>
               <p className="text-sm text-gray-300">• SHI Mediwere</p>
