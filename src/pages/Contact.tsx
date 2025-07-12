@@ -54,11 +54,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-medical-blue to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Contact Us</h1>
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto px-2">
               Ready to partner with Mumbai's trusted medical equipment distributor? 
               Get in touch with our team today.
             </p>
@@ -67,16 +67,16 @@ const Contact = () => {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Form */}
             <div className="fade-in">
               <Card className="shadow-lg">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <CardContent className="p-6 sm:p-8">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Send Us a Message</h2>
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                           Name *
@@ -89,6 +89,7 @@ const Contact = () => {
                           onChange={handleChange}
                           placeholder="Your full name"
                           required
+                          className="w-full"
                         />
                       </div>
                       <div>
@@ -102,6 +103,7 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+91 XXXXX XXXXX"
+                          className="w-full"
                         />
                       </div>
                     </div>
@@ -118,6 +120,7 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="your.email@example.com"
                         required
+                        className="w-full"
                       />
                     </div>
                     
@@ -131,12 +134,12 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Tell us about your requirements..."
-                        className="min-h-[120px]"
+                        className="min-h-[120px] w-full"
                         required
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full bg-medical-blue hover:bg-medical-blue/90">
+                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-2 sm:py-3">
                       Send Message
                     </Button>
                   </form>
@@ -145,46 +148,60 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="fade-in-delay space-y-8">
+            <div className="fade-in-delay space-y-6 sm:space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Get in Touch</h2>
+                <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
                   Whether you're looking for specific medical equipment, need pricing information, 
                   or want to establish a partnership, our team is here to help.
                 </p>
               </div>
 
               {/* Contact Cards */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <Card className="hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-medical-blue/10 p-3 rounded-lg">
-                        <MapPin className="h-6 w-6 text-medical-blue" />
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="bg-blue-100 p-2 sm:p-3 rounded-lg flex-shrink-0">
+                        <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Location</h3>
-                        <p className="text-gray-600">
-                          Office No 1, Pragnya Premises CHS,<br />
+                      <div className="flex-1">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Our Location</h3>
+                        <p className="text-sm sm:text-base text-gray-600">
+                          Office No 1, Pragnya, Primises CHS,<br />
                           near Employees State Insurance Scheme Hospital,<br />
                           Govind Dalvi Nagar, Kandivali East,<br />
-                          Mumbai, Maharashtra 400101
+                          Mumbai, Maharashtra 400101<br />
+                          <span className="text-xs text-gray-500">(Just opposite ESIS Hospital)</span>
                         </p>
                       </div>
+                    </div>
+                    {/* Google Maps Embed */}
+                    <div className="mt-4 rounded-lg overflow-hidden shadow-lg">
+                      <iframe
+                        title="Vedanta Healthcare Office Map"
+                        src="https://www.google.com/maps?q=Office+No+1,+Pragnya,+Primises+CHS,+near+Employees+State+Insurance+Scheme+Hospital,+Govind+Dalvi+Nagar,+Kandivali+East,+Mumbai,+Maharashtra+400101&output=embed"
+                        width="100%"
+                        height="200"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      ></iframe>
                     </div>
                   </CardContent>
                 </Card>
 
                 <Card className="hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-medical-red/10 p-3 rounded-lg">
-                        <Phone className="h-6 w-6 text-medical-red" />
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="bg-red-500/10 p-2 sm:p-3 rounded-lg flex-shrink-0">
+                        <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-red-600" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone Number</h3>
-                        <p className="text-gray-600">
-                          <a href="tel:091672 14295" className="hover:text-medical-blue transition-colors">
+                      <div className="flex-1">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Phone Number</h3>
+                        <p className="text-sm sm:text-base text-gray-600">
+                          <a href="tel:091672 14295" className="hover:text-blue-600 transition-colors">
                             091672 14295
                           </a>
                         </p>
@@ -194,17 +211,17 @@ const Contact = () => {
                 </Card>
 
                 <Card className="hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-green-500/10 p-3 rounded-lg">
-                        <Clock className="h-6 w-6 text-green-600" />
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="bg-green-500/10 p-2 sm:p-3 rounded-lg flex-shrink-0">
+                        <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Working Hours</h3>
+                      <div className="flex-1">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Working Hours</h3>
                         <div className="text-gray-600">
                           <p>Monday – Saturday: 9:30 AM – 6:00 PM</p>
                           <p>Sunday: Closed</p>
-                          <p className="text-sm text-medical-red mt-2">Emergency support available 24/7</p>
+                          <p className="text-sm text-red-600 mt-2">Emergency support available 24/7</p>
                         </div>
                       </div>
                     </div>
@@ -212,13 +229,13 @@ const Contact = () => {
                 </Card>
 
                 <Card className="hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-purple-500/10 p-3 rounded-lg">
-                        <Heart className="h-6 w-6 text-purple-600" />
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="bg-purple-500/10 p-2 sm:p-3 rounded-lg flex-shrink-0">
+                        <Heart className="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Commitment</h3>
+                      <div className="flex-1">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Our Commitment</h3>
                         <div className="text-gray-600">
                           <p>• Quick response times</p>
                           <p>• Personalized service</p>
@@ -257,11 +274,11 @@ const Contact = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-medical-blue/20 to-transparent pointer-events-none">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent pointer-events-none">
                 <div className="flex items-center justify-start h-full p-8">
                   <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-sm">
                     <div className="flex items-center space-x-3 mb-4">
-                      <MapPin className="h-6 w-6 text-medical-blue" />
+                      <MapPin className="h-6 w-6 text-blue-600" />
                       <h3 className="font-semibold text-gray-900">Vedanta Healthcare</h3>
                     </div>
                     <p className="text-sm text-gray-600">

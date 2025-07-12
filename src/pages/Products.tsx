@@ -198,153 +198,122 @@ const Products = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-medical-blue to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Product Portfolio</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive range of high-quality medical products from world-renowned manufacturers, 
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Our Products</h1>
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto px-2">
+              Comprehensive range of diagnostic and surgical equipment from trusted global brands
               serving Mumbai's leading hospitals with excellence since 2012.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Product Slideshow */}
-      <section className="py-16 bg-blue-50">
+      {/* Product Carousel */}
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="relative">
-            <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-2xl bg-blue-50">
-              {/* Watermark */}
-              <span
-                className="absolute inset-0 flex items-center justify-center select-none pointer-events-none"
-                aria-hidden="true"
-                style={{ zIndex: 1 }}
-              >
-                <span className="text-green-400 text-5xl md:text-7xl lg:text-8xl font-extrabold opacity-10 whitespace-nowrap">
-                  Vedanta Healthcare
-                </span>
-              </span>
-              <img
-                src={productSlides[currentSlide].image}
-                alt={productSlides[currentSlide].title}
-                className="w-full h-full object-contain bg-white transition-all duration-500 ease-in-out relative z-10"
-              />
-              
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Featured Products
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
+              Discover our premium selection of medical equipment and supplies
+            </p>
+          </div>
 
-              
-              {/* Navigation arrows */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 backdrop-blur-sm text-white hover:bg-black/80 transition-all duration-300 shadow-lg"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/70 backdrop-blur-sm text-white hover:bg-black/80 transition-all duration-300 shadow-lg"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
+          <div className="relative">
+            {/* Carousel Container */}
+            <div className="relative overflow-hidden rounded-lg shadow-lg">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                {productSlides.map((slide, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <div className="relative h-64 sm:h-80 md:h-96">
+                      <img
+                        src={slide.image}
+                        alt={slide.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.log(`Failed to load product image ${index + 1}:`, slide.image);
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/40"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                        <div className="text-xs sm:text-sm font-medium text-blue-200 mb-1">{slide.category}</div>
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">{slide.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-200">{slide.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            
-            {/* Slide indicators */}
-            <div className="flex justify-center mt-6 space-x-2">
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+              aria-label="Previous product"
+            >
+              <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+              aria-label="Next product"
+            >
+              <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
+            </button>
+
+            {/* Slide Indicators */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
               {productSlides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-medical-blue' : 'bg-gray-300 hover:bg-gray-400'
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/70"
                   }`}
-                  aria-label={`Go to slide ${index + 1}`}
+                  aria-label={`Go to product ${index + 1}`}
                 />
               ))}
-            </div>
-            {/* Next Button */}
-            <div className="flex justify-center mt-4">
-              <button
-                onClick={nextSlide}
-                className="px-6 py-2 bg-green-600 text-white font-semibold rounded-full shadow hover:bg-green-700 transition-all duration-200"
-              >
-                Next
-              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Product Categories */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Product Categories
             </h2>
-            <p className="text-lg text-gray-600">
-              Specialized medical solutions across multiple healthcare domains
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
+              Explore our comprehensive range of medical products and solutions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {productCategories.map((category, index) => {
-              const IconComponent = category.icon;
-              return (
-                <Card key={category.title} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="p-8">
-                    <div className="flex items-start space-x-4 mb-6">
-                      <div className={`${category.color} text-white p-4 rounded-lg flex-shrink-0`}>
-                        <IconComponent className="h-8 w-8" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">{category.title}</h3>
-                        <p className="text-gray-600 mb-4">{category.description}</p>
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {productCategories.map((category, index) => (
+              <Card key={category.title} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className={`${category.color} text-white p-3 sm:p-4 rounded-lg flex-shrink-0`}>
+                      <category.icon className="h-6 w-6 sm:h-8 sm:w-8" />
                     </div>
-                    
-                    <ul className="space-y-2">
-                      {category.products.map((product, productIndex) => (
-                        <li key={productIndex} className="flex items-start">
-                          <Activity className="h-4 w-4 text-medical-blue mr-3 mt-1 flex-shrink-0" />
-                          <span className="text-gray-700">{product}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Channel Partners */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Trusted Channel Partners
-            </h2>
-            <p className="text-lg text-gray-600">
-              Channel partnerships with leading global healthcare companies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {brands.map((brand, index) => (
-              <Card key={brand.name} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-8">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className={`${brand.color} text-white p-3 rounded-lg`}>
-                      <Stethoscope className="h-6 w-6" />
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">{category.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{category.description}</p>
+                      <ul className="space-y-1 sm:space-y-2">
+                        {category.products.map((product, productIndex) => (
+                          <li key={productIndex} className="text-sm sm:text-base text-gray-700 flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            {product}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">{brand.name}</h3>
-                  </div>
-                  <div className="space-y-2">
-                    {/* Removed divisions as per edit hint */}
                   </div>
                 </CardContent>
               </Card>
@@ -353,71 +322,48 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Quality Assurance */}
-      <section className="py-16">
+      {/* Brands Section */}
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Quality & Service Guarantee
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Trusted Brands
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Every product in our portfolio meets international quality standards and is backed 
-              by our commitment to exceptional service and support.
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
+              Authorized distributor for leading global medical brands
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-medical-blue text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-xl font-bold">✓</span>
-              </div>
-              <h3 className="font-semibold mb-2">Authentic Products</h3>
-              <p className="text-gray-600 text-sm">Direct partnerships ensure 100% authentic medical products</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-medical-red text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-xl font-bold">★</span>
-              </div>
-              <h3 className="font-semibold mb-2">Quality Certified</h3>
-              <p className="text-gray-600 text-sm">All products meet international quality and safety standards</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-green-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-xl font-bold">⚡</span>
-              </div>
-              <h3 className="font-semibold mb-2">Fast Delivery</h3>
-              <p className="text-gray-600 text-sm">Efficient supply chain for timely product delivery</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-purple-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-xl font-bold">24/7</span>
-              </div>
-              <h3 className="font-semibold mb-2">Customer Support</h3>
-              <p className="text-gray-600 text-sm">Round-the-clock support for all your medical equipment needs</p>
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
+            {brands.map((brand, index) => (
+              <Card key={brand.name} className="slide-up hover:shadow-lg transition-shadow duration-300 text-center" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-4 sm:p-6">
+                  <div className={`${brand.color} text-white rounded-lg p-3 sm:p-4 mb-3 sm:mb-4`}>
+                    <Activity className="h-6 w-6 sm:h-8 sm:w-8 mx-auto" />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900">{brand.name}</h3>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-medical-blue text-white">
+      <section className="py-12 sm:py-16 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Need Specific Medical Equipment?
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            Ready to Get Started?
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Contact Vedanta Healthcare for detailed product information, pricing, and availability. 
-            Our experienced team is ready to assist with your medical equipment requirements.
+          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
+            Contact us today to learn more about our products and how we can support your healthcare needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <Link to="/contact">Request Quote</Link>
+            <Button size="lg" variant="secondary" asChild className="w-full sm:w-auto">
+              <Link to="/contact">Contact Us</Link>
             </Button>
-            <Button size="lg" variant="outline" className="bg-white text-medical-blue border-medical-blue">
-              <a href="mailto:Vedanta1812@gmail.com" className="font-semibold">Email: Vedanta1812@gmail.com</a>
+            <Button size="lg" variant="outline" className="bg-white text-blue-600 border-white w-full sm:w-auto" asChild>
+              <Link to="/hospitals">View Our Partners</Link>
             </Button>
           </div>
         </div>

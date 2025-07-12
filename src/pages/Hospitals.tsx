@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Award, Users, Clock, Plus } from "lucide-react";
+import { MapPin, Award, Users, Clock, Plus, ArrowRight } from "lucide-react";
 
 const Hospitals = () => {
   const hospitals = [
@@ -74,55 +74,55 @@ const Hospitals = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-medical-blue to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Hospitals We Serve</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Trusted channel partner to Mumbai's leading hospitals, providing world-class medical equipment 
-              and supplies to enhance patient care across the city.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Hospitals We Serve</h1>
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto px-2">
+              Trusted channel partner to Mumbai's leading hospitals, providing world-class medical equipment
+              and exceptional service to support superior patient care.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="py-16 bg-medical-light">
+      {/* Stats Section */}
+      <section className="py-8 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-medical-blue mb-2">50+</div>
-              <div className="text-gray-600">Hospitals Served</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-sm sm:text-base text-gray-600">Hospitals Served</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-medical-red mb-2">15+</div>
-              <div className="text-gray-600">Years of Experience</div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-2">12+</div>
+              <div className="text-sm sm:text-base text-gray-600">Years Experience</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
-              <div className="text-gray-600">Emergency Support</div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-sm sm:text-base text-gray-600">Support Available</div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
-              <div className="text-gray-600">Genuine Products</div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-2">100%</div>
+              <div className="text-sm sm:text-base text-gray-600">Quality Assured</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Hospitals Grid */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Leading Healthcare Institutions
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Hospital Partners
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
               Mumbai's premier hospitals trust us for their medical equipment and supply needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {hospitals.map((hospital, index) => {
               // Map hospital names to image filenames
               const hospitalImages = {
@@ -167,48 +167,63 @@ const Hospitals = () => {
                     }
                   >
                     <div className="flex items-start space-x-4 mb-4">
-                      <div className="bg-medical-blue/10 p-3 rounded-lg">
-                        <Award className="h-6 w-6 text-medical-blue" />
+                      <div className="bg-blue-100 p-3 rounded-lg">
+                        <Award className="h-6 w-6 text-blue-600" />
                       </div>
                       <div className="flex-1">
                         <h3
-                          className="text-lg font-semibold text-gray-900 mb-1"
-                          style={hasBg ? { color: '#fff' } : {}}
+                          className={`text-lg font-semibold mb-1 ${hasBg ? 'text-white drop-shadow-lg' : 'text-gray-900'}`}
                         >
                           {hospital.name}
                         </h3>
                         <div
-                          className="flex items-center text-sm text-gray-500 mb-2"
-                          style={hasBg ? { color: '#fff' } : {}}
+                          className={`flex items-center text-sm mb-2 ${hasBg ? 'text-white drop-shadow' : 'text-gray-500'}`}
                         >
                           <MapPin className="h-4 w-4 mr-1" />
                           {hospital.location}
                         </div>
                         <div
-                          className="text-sm font-medium text-medical-blue mb-3"
-                          style={hasBg ? { color: '#fff' } : {}}
+                          className={`text-sm font-medium mb-3 ${hasBg ? 'text-white drop-shadow' : 'text-blue-600'}`}
                         >
                           {hospital.specialty}
                         </div>
                       </div>
                     </div>
-                    <p className={hasBg ? "text-white text-sm" : "text-gray-600 text-sm"}>
+                    <p className={hasBg ? "text-white text-sm drop-shadow" : "text-gray-600 text-sm"}>
                       {hospital.description}
                     </p>
                   </CardContent>
                 </Card>
               );
             })}
-            
+
             {/* Final Card with Plus Symbol */}
-            <Card className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${hospitals.length * 0.1}s` }}>
-              <CardContent className="p-6 h-full flex flex-col items-center justify-center text-center">
-                <div className="bg-medical-blue/10 p-6 rounded-full mb-4">
-                  <Plus className="h-12 w-12 text-medical-blue" />
-                </div>
-                <p className="text-lg font-semibold text-gray-700">many more</p>
-              </CardContent>
-            </Card>
+            <a
+              href="#"
+              className="group block h-full w-full"
+              tabIndex={0}
+              aria-label="View Full Hospital Network"
+            >
+              <Card
+                className="slide-up hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-blue-50 via-gray-50 to-blue-100 border-0 focus-within:ring-2 focus-within:ring-blue-600"
+                style={{
+                  animationDelay: `${hospitals.length * 0.1}s`,
+                  borderRadius: '1rem',
+                  height: '100%',
+                  width: '100%',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px 0 rgba(16, 30, 54, 0.08)',
+                }}
+              >
+                <CardContent className="p-6 h-full flex flex-col items-center justify-center text-center">
+                  <div className="bg-blue-100 p-3 rounded-full mb-4 flex items-center justify-center">
+                    <ArrowRight className="h-8 w-8 text-blue-600 group-hover:text-blue-700 transition-colors duration-200" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">View Full Hospital Network</h3>
+                  <p className="text-gray-600 text-sm mb-0">Discover all the hospitals we’re proudly partnered with.</p>
+                </CardContent>
+              </Card>
+            </a>
           </div>
         </div>
       </section>
@@ -224,7 +239,7 @@ const Hospitals = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="bg-medical-blue text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <div className="bg-blue-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Clock className="h-8 w-8" />
               </div>
               <h3 className="text-lg font-semibold mb-3">24/7 Availability</h3>
@@ -234,7 +249,7 @@ const Hospitals = () => {
             </div>
 
             <div className="text-center">
-              <div className="bg-medical-red text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <div className="bg-red-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Users className="h-8 w-8" />
               </div>
               <h3 className="text-lg font-semibold mb-3">Dedicated Support</h3>
@@ -267,50 +282,58 @@ const Hospitals = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What Our Hospital Channel Partners Say
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-600 mb-6 italic">
-                  "Vedanta Healthcare has been our trusted channel partner for years. Their reliability 
-                  and quality products are essential to our operations."
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="text-3xl sm:text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic leading-relaxed">
+                  "I trust Vedanta's team to deliver on time-even during critical emergencies.That reliability saves lives."
                 </p>
-                <div className="text-sm text-gray-500">
-                  - Mumbai Healthcare Professional
+                <div className="text-sm text-gray-700 font-bold">
+                  Dr Haresh Mehta
+                </div>
+                <div className="text-sm text-gray-700 font-bold">
+                  Director Interventional & Structural Cardiology
                 </div>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-600 mb-6 italic">
-                  "Exceptional service and genuine products. They understand the urgency 
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="text-3xl sm:text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic leading-relaxed">
+                  "Exceptional service and genuine products.They understand the urgency 
                   of medical requirements and always deliver on time."
                 </p>
-                <div className="text-sm text-gray-500">
-                  - Hospital Procurement Manager
+                <div className="text-sm text-gray-700 font-bold">
+                  Deepak Singh
+                </div>
+                <div className="text-sm text-gray-700 font-bold">
+                  CEO Hinduja Hospital
                 </div>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
-                <div className="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-600 mb-6 italic">
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="text-3xl sm:text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 italic leading-relaxed">
                   "Their 24/7 support has been invaluable for our emergency procedures. 
                   Professional team with deep healthcare industry knowledge."
                 </p>
-                <div className="text-sm text-gray-500">
-                  - Chief Medical Officer
+                <div className="text-sm text-gray-700 font-bold">
+                  Rupal Desai (Purchase Manager)
+                </div>
+                <div className="text-sm text-gray-700 font-bold">
+                  S. L. Raheja Hospital - A Fortis Associate
                 </div>
               </CardContent>
             </Card>
@@ -319,12 +342,12 @@ const Hospitals = () => {
       </section>
 
       {/* Partnership CTA */}
-      <section className="py-16 bg-medical-blue text-white">
+      <section className="py-12 sm:py-16 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Join Mumbai's Leading Hospitals
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
             Channel partner with Vedanta Healthcare for reliable medical equipment supply, 
             exceptional service, and support that helps you focus on patient care.
           </p>

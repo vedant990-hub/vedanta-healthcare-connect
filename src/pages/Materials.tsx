@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Package, CheckCircle, Clock, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Materials = () => {
   const materialCategories = [
@@ -46,11 +48,11 @@ const Materials = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-medical-blue to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Materials & Equipment</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Materials & Equipment</h1>
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto px-2">
               Comprehensive inventory of high-quality medical materials and equipment 
               with genuine sourcing and immediate availability for Mumbai's healthcare providers.
             </p>
@@ -59,73 +61,73 @@ const Materials = () => {
       </section>
 
       {/* Key Features */}
-      <section className="py-16 bg-medical-light">
+      <section className="py-12 sm:py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center">
-              <div className="bg-medical-blue text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <CheckCircle className="h-8 w-8" />
+              <div className="bg-blue-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Genuine Sourcing</h3>
-              <p className="text-gray-600 text-sm">Direct procurement from authorized manufacturers ensures authenticity</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">Genuine Sourcing</h3>
+              <p className="text-sm sm:text-base text-gray-600">Direct procurement from authorized manufacturers ensures authenticity</p>
             </div>
             
             <div className="text-center">
-              <div className="bg-medical-red text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Package className="h-8 w-8" />
+              <div className="bg-red-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                <Package className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Ready Inventory</h3>
-              <p className="text-gray-600 text-sm">Comprehensive stock maintained for immediate delivery</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">Ready Inventory</h3>
+              <p className="text-sm sm:text-base text-gray-600">Comprehensive stock maintained for immediate delivery</p>
             </div>
             
             <div className="text-center">
-              <div className="bg-green-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Clock className="h-8 w-8" />
+              <div className="bg-green-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                <Clock className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Quick Delivery</h3>
-              <p className="text-gray-600 text-sm">Fast delivery across Mumbai for urgent medical requirements</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">Quick Delivery</h3>
+              <p className="text-sm sm:text-base text-gray-600">Fast delivery across Mumbai for urgent medical requirements</p>
             </div>
             
             <div className="text-center">
-              <div className="bg-purple-600 text-white rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Shield className="h-8 w-8" />
+              <div className="bg-purple-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                <Shield className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Quality Assured</h3>
-              <p className="text-gray-600 text-sm">All products meet international quality and safety standards</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">Quality Assured</h3>
+              <p className="text-sm sm:text-base text-gray-600">All products meet international quality and safety standards</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Material Categories */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Material Categories
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
               Comprehensive range of medical materials and equipment for all healthcare specialties
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {materialCategories.filter(category => category.category !== "Disposable Medical Supplies").map((category, index) => (
               <Card key={category.category} className="slide-up hover:shadow-lg transition-shadow duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className={`${category.color} text-white p-3 rounded-lg`}>
-                      <Package className="h-6 w-6" />
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className={`${category.color} text-white p-2 sm:p-3 rounded-lg flex-shrink-0`}>
+                      <Package className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{category.category}</h3>
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{category.category}</h3>
                     </div>
                   </div>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {category.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start text-gray-600">
                         <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
+                        <span className="text-sm sm:text-base">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -135,23 +137,23 @@ const Materials = () => {
           </div>
 
           {/* Centered Disposable Medical Supplies Card */}
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-6 sm:mt-8">
             {materialCategories.filter(category => category.category === "Disposable Medical Supplies").map((category, index) => (
               <Card key={category.category} className="slide-up hover:shadow-lg transition-shadow duration-300 w-full max-w-xl" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className={`${category.color} text-white p-3 rounded-lg`}>
-                      <Package className="h-6 w-6" />
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                    <div className={`${category.color} text-white p-2 sm:p-3 rounded-lg flex-shrink-0`}>
+                      <Package className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{category.category}</h3>
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{category.category}</h3>
                     </div>
                   </div>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {category.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start text-gray-600">
                         <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
+                        <span className="text-sm sm:text-base">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -163,40 +165,40 @@ const Materials = () => {
       </section>
 
       {/* Quality Standards */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Quality & Compliance Standards
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-2">
               All our materials and equipment meet stringent quality standards and regulatory requirements
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-white rounded-lg shadow-md">
-              <div className="text-3xl mb-4">🏥</div>
-              <h3 className="font-semibold mb-2">FDA Approved</h3>
-              <p className="text-gray-600 text-sm">Products approved by international regulatory bodies</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="text-center p-4 sm:p-6 bg-white rounded-lg shadow-md">
+              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🏥</div>
+              <h3 className="text-sm sm:text-base font-semibold mb-2">FDA Approved</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Products approved by international regulatory bodies</p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md">
-              <div className="text-3xl mb-4">📋</div>
-              <h3 className="font-semibold mb-2">ISO Certified</h3>
-              <p className="text-gray-600 text-sm">Manufacturing facilities maintain ISO quality standards</p>
+            <div className="text-center p-4 sm:p-6 bg-white rounded-lg shadow-md">
+              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">📋</div>
+              <h3 className="text-sm sm:text-base font-semibold mb-2">ISO Certified</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Manufacturing facilities maintain ISO quality standards</p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md">
-              <div className="text-3xl mb-4">🔬</div>
-              <h3 className="font-semibold mb-2">Sterile Products</h3>
-              <p className="text-gray-600 text-sm">Sterile packaging and handling for surgical products</p>
+            <div className="text-center p-4 sm:p-6 bg-white rounded-lg shadow-md">
+              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🔬</div>
+              <h3 className="text-sm sm:text-base font-semibold mb-2">Sterile Products</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Sterile packaging and handling for surgical products</p>
             </div>
             
-            <div className="text-center p-6 bg-white rounded-lg shadow-md">
-              <div className="text-3xl mb-4">📄</div>
-              <h3 className="font-semibold mb-2">Documentation</h3>
-              <p className="text-gray-600 text-sm">Complete product documentation and traceability</p>
+            <div className="text-center p-4 sm:p-6 bg-white rounded-lg shadow-md">
+              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">📄</div>
+              <h3 className="text-sm sm:text-base font-semibold mb-2">Documentation</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Complete product documentation and traceability</p>
             </div>
           </div>
         </div>
@@ -238,8 +240,8 @@ const Materials = () => {
               <Card className="shadow-lg">
                 <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="bg-medical-blue/10 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                      <Package className="h-8 w-8 text-medical-blue" />
+                    <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                      <Package className="h-8 w-8 text-blue-600" />
                     </div>
                     <h3 className="text-xl font-semibold mb-4">Need Bulk Orders?</h3>
                     <p className="text-gray-600 mb-6">
@@ -261,14 +263,23 @@ const Materials = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-medical-blue text-white">
+      <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Streamline Your Medical Supply Chain?
+            Need Specific Medical Materials?
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Contact us to discuss your material requirements, bulk orders, and inventory management solutions.
+            Contact Vedanta Healthcare for detailed product information, pricing, and availability. 
+            Our experienced team is ready to assist with your medical equipment requirements.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/contact">Request Quote</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="bg-white text-blue-600 border-blue-600">
+              <a href="mailto:Vedanta1812@gmail.com" className="font-semibold">Email: Vedanta1812@gmail.com</a>
+            </Button>
+          </div>
         </div>
       </section>
     </div>
