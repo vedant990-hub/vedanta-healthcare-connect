@@ -42,23 +42,22 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Slideshow */}
-      <section className="relative w-full aspect-video sm:aspect-[16/7] overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         {/* Slideshow Background */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0">
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
               <img
                 src={slide}
                 alt={`Vedanta Healthcare ${index + 1}`}
-                className="w-full h-auto max-h-full object-contain bg-black"
+                className="w-full h-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
-                style={{ maxWidth: '100%', maxHeight: '100%' }}
-                onError={() => {
+                onError={(e) => {
                   console.log(`Failed to load image ${index + 1}:`, slide);
                 }}
                 onLoad={() => {
@@ -68,7 +67,7 @@ const Index = () => {
             </div>
           ))}
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         {/* Navigation Arrows */}

@@ -22,31 +22,15 @@ export const Navbar = () => {
     <nav className="bg-gray-50 shadow-md sticky top-0 z-50">
       <div>
         <div>
-          <div className="flex justify-between items-center h-16 px-2 sm:px-0">
+          <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link
-              to="/"
-              className="flex items-center space-x-2 ml-2 sm:ml-4"
-              style={{ minWidth: 0 }}
-            >
-              <div className="bg-medical-light p-1 sm:p-2 rounded-lg flex-shrink-0">
-                <img
-                  src="/lovable-uploads/logo.png"
-                  alt="Logo"
-                  className="h-10 w-10 sm:h-12 sm:w-12 object-contain border-2 border-black rounded-full"
-                />
+            <Link to="/" className="flex items-center space-x-2 ml-6">
+              <div className="bg-medical-light p-2 rounded-lg">
+                <img src="/lovable-uploads/logo.png" alt="Logo" className="h-12 w-12 object-contain border-2 border-black rounded-full" />
               </div>
-              <div className="flex flex-col justify-center min-w-0">
-                <span
-                  className="font-extrabold font-serif tracking-wide text-green-600
-                    text-lg sm:text-2xl leading-tight truncate"
-                  style={{ lineHeight: '1.1' }}
-                >
-                  Vedanta Healthcare
-                </span>
-                <span className="text-[10px] sm:text-xs font-bold text-black leading-tight">
-                  Mumbai, India
-                </span>
+              <div className="flex flex-col">
+                <span className="text-2xl font-extrabold font-serif tracking-wide text-green-600">Vedanta Healthcare</span>
+                <span className="text-xs font-bold text-black">Mumbai, India</span>
               </div>
             </Link>
 
