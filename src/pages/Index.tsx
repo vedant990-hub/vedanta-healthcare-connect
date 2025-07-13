@@ -42,22 +42,23 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Slideshow */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative w-full aspect-video sm:aspect-[16/7] overflow-hidden">
         {/* Slideshow Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 w-full h-full">
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
               <img
                 src={slide}
                 alt={`Vedanta Healthcare ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-auto max-h-full object-contain bg-black"
                 loading={index === 0 ? "eager" : "lazy"}
-                onError={(e) => {
+                style={{ maxWidth: '100%', maxHeight: '100%' }}
+                onError={() => {
                   console.log(`Failed to load image ${index + 1}:`, slide);
                 }}
                 onLoad={() => {
@@ -67,7 +68,7 @@ const Index = () => {
             </div>
           ))}
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
         </div>
 
         {/* Navigation Arrows */}
@@ -134,11 +135,9 @@ const Index = () => {
               Your Healthcare Partner in Mumbai
             </h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Vedanta Healthcare is a leading distributor of premium diagnostic and medical equipment 
-              in Mumbai. We partner with globally trusted brands like Cordis, Coloplast, and Johnson & Johnson 
-              to supply high-quality medical products to major hospitals across the city. Our commitment 
-              to excellence ensures healthcare providers have access to the best medical technology 
-              to deliver superior patient care.
+            Vedanta Healthcare is a leading distributor of premium diagnostic and medical equipment in Mumbai. 
+            We partner with globally trusted brands such as Cordis, Coloplast, and Johnson & Johnson to supply high-quality medical products to major hospitals across the city. 
+            Our commitment to excellence ensures that healthcare providers have access to advanced medical technology to deliver superior patient care.
             </p>
           </div>
         </div>

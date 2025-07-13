@@ -44,7 +44,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="h-4 w-4 text-medical-red flex-shrink-0" />
-                <span className="text-sm text-gray-300">Mon - Fri: 9:00 AM - 6:00 PM</span>
+                <span className="text-sm text-gray-300">Monday - Saturday: 9:00 AM - 6:00 PM</span>
               </div>
             </div>
           </div>
