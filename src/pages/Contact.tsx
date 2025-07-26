@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Clock, Phone, Mail, Heart, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useGA4 } from "@/hooks/use-ga4";
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '@/config/emailjs';
 
@@ -19,9 +20,19 @@ const Contact = () => {
   
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { trackFormSubmission, trackButtonClick } = useGA4();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Track form submission attempt
+    trackFormSubmission('contact_form', {
+      form_type: 'inquiry',
+      has_name: !!formData.name,
+      has_email: !!formData.email,
+      has_phone: !!formData.phone,
+      has_message: !!formData.message
+    });
     
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
@@ -64,6 +75,12 @@ const Contact = () => {
         description: "We'll get back to you within 24 hours."
       });
 
+      // Track successful form submission
+      trackFormSubmission('contact_form_success', {
+        form_type: 'inquiry',
+        has_phone: !!formData.phone
+      });
+
       // Reset form
       setFormData({
         name: "",
@@ -74,6 +91,13 @@ const Contact = () => {
 
     } catch (error) {
       console.error('Email sending failed:', error);
+      
+      // Track failed form submission
+      trackFormSubmission('contact_form_error', {
+        form_type: 'inquiry',
+        error_type: 'email_send_failed'
+      });
+      
       toast({
         title: "Failed to send message",
         description: "Please try again later or contact us directly.",
@@ -176,7 +200,11 @@ const Contact = () => {
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-2 sm:py-3">
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-blue-600 hover:bg-blue-700 py-2 sm:py-3"
+                      onClick={() => trackButtonClick('contact_submit_button', { page: 'contact' })}
+                    >
                       Send Message
                     </Button>
                   </form>
