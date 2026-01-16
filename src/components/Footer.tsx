@@ -30,8 +30,10 @@ export const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-medical-red mt-1 flex-shrink-0" />
                 <span className="text-sm text-gray-300">
-                  Office no.1, Pragnya CHS, Akurli Road,<br />
-                  Kandivali (E), Mumbai - 400101
+                  Office No 1, Pragnya Premises Society,<br />
+                  6V23+RR6, Akurli Rd, Kandivali,<br />
+                  Govind Dalvi Nagar, Kandivali East,<br />
+                  Mumbai, Maharashtra 400101
                 </span>
               </div>
               <div className="flex items-center space-x-3">

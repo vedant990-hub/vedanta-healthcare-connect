@@ -233,11 +233,10 @@ const Contact = () => {
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Location</h3>
                         <p className="text-gray-600">
-                          Office No 1, Pragnya, Primises CHS,<br />
-                          near Employees State Insurance Scheme Hospital,<br />
+                          Office No 1, Pragnya Premises Society,<br />
+                          6V23+RR6, Akurli Rd, Kandivali,<br />
                           Govind Dalvi Nagar, Kandivali East,<br />
-                          Mumbai, Maharashtra 400101<br />
-                          <span className="text-xs text-gray-500">(Just opposite ESIS Hospital)</span>
+                          Mumbai, Maharashtra 400101
                         </p>
                       </div>
                     </div>
@@ -245,7 +244,7 @@ const Contact = () => {
                     <div className="mt-4 rounded-lg overflow-hidden shadow-lg">
                       <iframe
                         title="Vedanta Healthcare Office Map"
-                        src="https://www.google.com/maps?q=Office+No+1,+Pragnya,+Primises+CHS,+near+Employees+State+Insurance+Scheme+Hospital,+Govind+Dalvi+Nagar,+Kandivali+East,+Mumbai,+Maharashtra+400101&output=embed"
+                        src="https://www.google.com/maps?q=Pragnya+Premises+Society,+6V23%2BRR6,+Akurli+Rd,+Kandivali,+Govind+Dalvi+Nagar,+Kandivali+East,+Mumbai,+Maharashtra+400101&output=embed"
                         width="100%"
                         height="220"
                         style={{ border: 0 }}
@@ -330,7 +329,7 @@ const Contact = () => {
           <Card className="overflow-hidden">
             <div className="relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.4167167167167!2d72.86777777510937!3d19.205555881991957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c7c7c7c7c7%3A0x7c7c7c7c7c7c7c7c!2sKandivali%20East%2C%20Mumbai%2C%20Maharashtra%20400101!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=Pragnya+Premises+Society,+6V23%2BRR6,+Akurli+Rd,+Kandivali,+Govind+Dalvi+Nagar,+Kandivali+East,+Mumbai,+Maharashtra+400101&output=embed"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
@@ -347,8 +346,10 @@ const Contact = () => {
                       <h3 className="font-semibold text-gray-900">Vedanta Healthcare</h3>
                     </div>
                     <p className="text-sm text-gray-600">
-                      Office No 1, Pragnya Premises CHS,<br />
-                      Kandivali East, Mumbai 400101
+                      Office No 1, Pragnya Premises Society,<br />
+                      6V23+RR6, Akurli Rd, Kandivali,<br />
+                      Govind Dalvi Nagar, Kandivali East,<br />
+                      Mumbai, Maharashtra 400101
                     </p>
                   </div>
                 </div>
