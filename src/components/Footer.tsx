@@ -1,5 +1,5 @@
 
-import { Heart, MapPin, Clock, Phone, Mail } from "lucide-react";
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -9,8 +9,12 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-medical-light p-2 rounded-lg">
-                <Heart className="h-6 w-6 text-medical-red fill-current" />
+              <div className="bg-white p-1 rounded-lg">
+                <img
+                  src="/lovable-uploads/logo.png"
+                  alt="Vedanta Healthcare logo"
+                  className="h-10 w-10 object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-lg font-bold">Vedanta Healthcare</h3>
@@ -21,6 +25,18 @@ export const Footer = () => {
               Founded in 2012 by Mr. Vishnudas Pawar, Mumbai's trusted distributor of high-quality 
               diagnostic and surgical products from leading global brands.
             </p>
+          </div>
+
+          {/* Channel Partners */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold">Our Channel Partners</h4>
+            <div className="space-y-2">
+              <p className="text-sm text-gray-300">• Johnson & Johnson</p>
+              <p className="text-sm text-gray-300">• Cordis</p>
+              <p className="text-sm text-gray-300">• Coloplast</p>
+              <p className="text-sm text-gray-300">• SHI Mediwere</p>
+              <p className="text-sm text-gray-300">• Medline Healthcare</p>
+            </div>
           </div>
 
           {/* Contact Info */}
@@ -50,24 +66,25 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-
-          {/* Channel Partners */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Our Channel Partners</h4>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-300">• Johnson & Johnson</p>
-              <p className="text-sm text-gray-300">• Cordis</p>
-              <p className="text-sm text-gray-300">• Coloplast</p>
-              <p className="text-sm text-gray-300">• SHI Mediwere</p>
-              <p className="text-sm text-gray-300">• Medline Healthcare</p>
-            </div>
-          </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-xs sm:text-sm text-gray-400 px-4">
-            © 2024 Vedanta Healthcare. All rights reserved. | Founded 2012 | Integrity | Patient-Centered | Quality-First
-          </p>
+        <div className="border-t border-gray-700 mt-8 pt-8 px-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <p className="text-xs sm:text-sm text-gray-400 text-left">
+              © 2024 Vedanta Healthcare. All rights reserved. | Founded 2012 | Integrity | Patient-Centered | Quality-First
+            </p>
+            <p className="text-xs sm:text-sm text-gray-400 text-left sm:text-right">
+              Website designed by{" "}
+              <a
+                href="https://pawarvedant.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-white transition-colors"
+              >
+                Vedant Pawar
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
